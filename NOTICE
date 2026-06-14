@@ -1,0 +1,13 @@
+reflex-charts
+Copyright 2026 Ernesto Crespo
+
+This product is a Reflex (https://reflex.dev) custom component that wraps the
+following third-party software, which is downloaded at build time and is NOT
+redistributed as part of this source repository:
+
+  - Chart.js          (MIT License)  https://www.chartjs.org
+  - react-chartjs-2   (MIT License)  https://react-chartjs-2.js.org
+
+Chart.js and react-chartjs-2 are the property of their respective authors and
+are used here under the terms of the MIT License. This repository itself is
+licensed under the Apache License, Version 2.0 (see the LICENSE file).

@@ -1,0 +1,37 @@
+[project]
+name = "reflex-charts"
+version = "0.1.0"
+description = "A Reflex custom component that wraps Chart.js (via react-chartjs-2), usable from pure Python."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Ernesto Crespo", email = "ecrespo@gmail.com" }]
+keywords = ["reflex", "chartjs", "chart.js", "charts", "react-chartjs-2", "dataviz"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Framework :: Reflex",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Visualization",
+]
+dependencies = [
+    "reflex>=0.8.6",
+]
+
+[project.urls]
+Homepage = "https://github.com/ecrespo/reflex-charts"
+Repository = "https://github.com/ecrespo/reflex-charts"
+Issues = "https://github.com/ecrespo/reflex-charts/issues"
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["reflex_charts*"]
+
+[tool.setuptools.package-data]
+"reflex_charts" = ["**/*.tsx", "**/*.ts", "**/*.js", "**/*.jsx", "**/*.css"]
