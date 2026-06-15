@@ -35,3 +35,8 @@ include = ["reflex_charts*"]
 
 [tool.setuptools.package-data]
 "reflex_charts" = ["**/*.tsx", "**/*.ts", "**/*.js", "**/*.jsx", "**/*.css"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.0",
+]
