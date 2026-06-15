@@ -1,3 +1,6 @@
+.web
+assets/external/
+.states
 # Reflex
 .web/
 .states/
