@@ -6,6 +6,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+- Remove the unregistered `Framework :: Reflex` trove classifier that PyPI
+  rejected (400) on upload.
+
 ### Changed
 - Adopt the standard Reflex custom-component layout: the importable package now
   lives under `custom_components/reflex_charts/`, and the demo is a standalone

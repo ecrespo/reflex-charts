@@ -95,8 +95,11 @@ layout, so the standard tooling works:
 
 ```bash
 reflex component build           # build the wheel/sdist into dist/
-reflex component publish         # upload to PyPI (needs a PyPI token)
+twine upload dist/*              # upload to PyPI (token via ~/.pypirc)
 ```
+
+> Reflex 0.9's `reflex component` CLI has no `publish` subcommand; publish the
+> built artifacts with `twine` (or `uv publish`).
 
 The build ships typed `.pyi` stubs (and a `py.typed` marker) for editor
 autocomplete. To **regenerate** the stubs after changing component props, make
