@@ -1,0 +1,2 @@
+# The demo installs the local custom component (which depends on reflex).
+-e ..

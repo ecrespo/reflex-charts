@@ -79,28 +79,43 @@ See [`docs/usage.md`](docs/usage.md) for an example of each.
 
 ## Run the demo
 
-The package ships a demo app with a gallery of every chart type plus a
-state-driven, click-aware interactive example.
+A standalone demo app (`reflex_charts_demo/`) shows a gallery of every chart
+type plus a state-driven, click-aware interactive example.
 
 ```bash
-reflex run     # open http://localhost:3000
+pip install -e .                 # install the component (editable)
+cd reflex_charts_demo
+reflex run                       # open http://localhost:3000
+```
+
+## Build & publish (custom component)
+
+This repo follows the [Reflex custom-component](https://reflex.dev/docs/custom-components/overview/)
+layout, so the standard tooling works:
+
+```bash
+reflex component build           # build the wheel/sdist into dist/
+reflex component publish         # upload to PyPI (needs a PyPI token)
 ```
 
 ## Project layout
 
 ```
 reflex-charts/
-├── reflex_charts/          # the component package + demo app
-│   ├── base.py             # ChartJSBase: deps + Chart.js registration
-│   ├── chart.py            # ChartCanvas + typed factories
-│   ├── helpers.py          # dataset / chart_data / options builders
-│   ├── constants.py        # npm pins, chart types, palette
-│   ├── examples/data.py    # canonical sample figures
-│   └── reflex_charts.py    # demo app
-├── specs/                  # Spec-Driven Design artifacts (see below)
-├── docs/usage.md           # usage guide
-├── tests/                  # smoke tests
-└── scripts/                # GitHub bootstrap helper
+├── custom_components/
+│   └── reflex_charts/          # the importable component package (PyPI: reflex-charts)
+│       ├── base.py             # ChartJSBase: deps + Chart.js registration
+│       ├── chart.py            # ChartCanvas + typed factories
+│       ├── helpers.py          # dataset / chart_data / options builders
+│       ├── constants.py        # npm pins, chart types, palette
+│       └── examples/data.py    # canonical sample figures
+├── reflex_charts_demo/         # standalone demo app (gallery + interactive)
+│   ├── rxconfig.py
+│   └── reflex_charts_demo/reflex_charts_demo.py
+├── specs/                      # Spec-Driven Design artifacts (see below)
+├── docs/usage.md               # usage guide
+├── tests/                      # unit tests
+└── scripts/                    # GitHub bootstrap helper
 ```
 
 ## Design docs (Spec-Driven Design)

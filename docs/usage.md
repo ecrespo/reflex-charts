@@ -130,6 +130,10 @@ rx.box(rxc.line(data=..., options=rxc.options()), height="320px", width="100%")
 
 ## Run the demo
 
+The demo is a standalone Reflex app under `reflex_charts_demo/`:
+
 ```bash
-reflex run     # then open http://localhost:3000
+pip install -e .          # install the component
+cd reflex_charts_demo
+reflex run               # then open http://localhost:3000
 ```

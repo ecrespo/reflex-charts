@@ -1,6 +1,6 @@
-"""Demo application for reflex-charts.
+"""Demo application for the ``reflex-charts`` custom component.
 
-Run it from the repository root with::
+Run it from the ``reflex_charts_demo/`` directory with::
 
     reflex run
 

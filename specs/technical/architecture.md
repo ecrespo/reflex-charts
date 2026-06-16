@@ -61,22 +61,35 @@ See ADR-003.
 
 ## 5. Module layout
 
+The repository follows the **Reflex custom-component layout** produced by
+`reflex component init`: the importable package lives under `custom_components/`
+and a standalone demo app lives in `reflex_charts_demo/`. Only the package is
+published to PyPI; the demo and tests are excluded from the wheel.
+
 ```
-reflex_charts/
-├── __init__.py        Public API surface (re-exports).
-├── constants.py       npm version pins, CHART_TYPES, colour palettes.
-├── base.py            ChartJSBase: library/lib_dependencies + registration.
-├── chart.py           ChartCanvas (generic) + chart()/line()/bar()/… factories.
-├── helpers.py         dataset / categorical_dataset / chart_data / options.
-├── examples/
-│   ├── __init__.py
-│   └── data.py        Canonical sample figures + GALLERY registry.
-└── reflex_charts.py   Demo Reflex app (gallery + interactive state example).
+reflex-charts/                         Repository root (PyPI dist: reflex-charts).
+├── custom_components/
+│   └── reflex_charts/                 The importable package (import reflex_charts).
+│       ├── __init__.py                Public API surface (re-exports).
+│       ├── constants.py               npm version pins, CHART_TYPES, colour palettes.
+│       ├── base.py                    ChartJSBase: library/lib_dependencies + registration.
+│       ├── chart.py                   ChartCanvas (generic) + chart()/line()/bar()/… factories.
+│       ├── helpers.py                 dataset / categorical_dataset / chart_data / options.
+│       └── examples/
+│           ├── __init__.py
+│           └── data.py                Canonical sample figures + GALLERY registry.
+├── reflex_charts_demo/                Standalone demo Reflex app (not packaged).
+│   ├── rxconfig.py                    app_name="reflex_charts_demo" + plugins.
+│   └── reflex_charts_demo/
+│       └── reflex_charts_demo.py      Gallery + interactive state example.
+├── tests/                             Pure-Python unit tests (not packaged).
+└── pyproject.toml                     packages.find where=["custom_components"].
 ```
 
 Dependency direction is strictly inward and acyclic:
 `__init__ → chart → base → constants`; `helpers → constants`;
-`examples.data → helpers`; `reflex_charts.py → (package public API + examples)`.
+`examples.data → helpers`; the demo app
+(`reflex_charts_demo → package public API + examples`).
 
 ## 6. Data flow
 

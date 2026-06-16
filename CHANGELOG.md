@@ -6,6 +6,19 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+- Adopt the standard Reflex custom-component layout: the importable package now
+  lives under `custom_components/reflex_charts/`, and the demo is a standalone
+  app in `reflex_charts_demo/`. `pyproject.toml` uses
+  `packages.find where=["custom_components"]`. Import path (`import reflex_charts`)
+  and public API are unchanged.
+
+### Added
+- Spec-traceable unit-test suite (constants, helpers, examples, components,
+  public API) — 90 tests covering the documented surface.
+- `publish` optional-dependency group (`build`, `twine`) for
+  `reflex component build` / `publish`.
+
 ## [0.1.0] - 2026-06-14
 
 ### Added

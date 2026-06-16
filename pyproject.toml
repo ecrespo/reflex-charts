@@ -6,7 +6,15 @@ readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "Apache-2.0" }
 authors = [{ name = "Ernesto Crespo", email = "ecrespo@gmail.com" }]
-keywords = ["reflex", "chartjs", "chart.js", "charts", "react-chartjs-2", "dataviz"]
+keywords = [
+    "reflex",
+    "reflex-custom-components",
+    "chartjs",
+    "chart.js",
+    "charts",
+    "react-chartjs-2",
+    "dataviz",
+]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Framework :: Reflex",
@@ -25,13 +33,18 @@ Issues = "https://github.com/ecrespo/reflex-charts/issues"
 
 [project.optional-dependencies]
 dev = ["pytest>=8"]
+# Tooling used to build and upload the custom-component distribution.
+publish = ["build", "twine"]
 
 [build-system]
 requires = ["setuptools>=61"]
 build-backend = "setuptools.build_meta"
 
+# Reflex custom-component layout: the importable package lives under
+# ``custom_components/`` (per ``reflex component init``), keeping the demo app
+# and tests out of the published wheel.
 [tool.setuptools.packages.find]
-include = ["reflex_charts*"]
+where = ["custom_components"]
 
 [tool.setuptools.package-data]
 "reflex_charts" = ["**/*.tsx", "**/*.ts", "**/*.js", "**/*.jsx", "**/*.css"]

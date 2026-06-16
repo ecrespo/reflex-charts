@@ -1,9 +1,8 @@
-.web
-assets/external/
-.states
-# Reflex
+# Reflex (build artifacts, generated under the demo app dir)
 .web/
 .states/
+reflex.lock/
+assets/external/
 *.db
 
 # Python
