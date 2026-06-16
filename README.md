@@ -98,6 +98,14 @@ reflex component build           # build the wheel/sdist into dist/
 reflex component publish         # upload to PyPI (needs a PyPI token)
 ```
 
+The build ships typed `.pyi` stubs (and a `py.typed` marker) for editor
+autocomplete. To **regenerate** the stubs after changing component props, make
+the source importable by its on-disk path so Reflex's stub generator can load it:
+
+```bash
+PYTHONPATH="$PWD" reflex component build
+```
+
 ## Project layout
 
 ```

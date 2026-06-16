@@ -17,7 +17,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Spec-traceable unit-test suite (constants, helpers, examples, components,
   public API) — 90 tests covering the documented surface.
 - `publish` optional-dependency group (`build`, `twine`) for
-  `reflex component build` / `publish`.
+  `reflex component build` / `publish`; `build`/`twine` also added to the dev
+  group so `reflex component build` works out of the box.
+- Generated type stubs (`base.pyi`, `chart.pyi`) and a PEP 561 `py.typed`
+  marker, packaged so editors get typed autocomplete for the components.
 
 ## [0.1.0] - 2026-06-14
 

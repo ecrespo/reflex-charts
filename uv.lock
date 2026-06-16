@@ -902,7 +902,9 @@ publish = [
 
 [package.dev-dependencies]
 dev = [
+    { name = "build" },
     { name = "pytest" },
+    { name = "twine" },
 ]
 
 [package.metadata]
@@ -915,7 +917,11 @@ requires-dist = [
 provides-extras = ["dev", "publish"]
 
 [package.metadata.requires-dev]
-dev = [{ name = "pytest", specifier = ">=9.1.0" }]
+dev = [
+    { name = "build", specifier = ">=1.5.0" },
+    { name = "pytest", specifier = ">=9.1.0" },
+    { name = "twine", specifier = ">=6.2.0" },
+]
 
 [[package]]
 name = "reflex-components-code"
