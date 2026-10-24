@@ -27,10 +27,12 @@ The specs were derived from primary research into two sources:
 - **Reflex** — the Python web framework ([reflex.dev](https://reflex.dev)) and
   its *wrapping React* and *custom components* guides: `rx.Component`,
   `library`/`tag`/`lib_dependencies`, `Var` props, `EventHandler`,
-  `add_imports`, `add_custom_code`, and the `reflex component` packaging layout.
+  `add_imports`, `add_custom_code`, and the custom-component packaging layout (built with `uv build` since
+  Reflex 0.10 removed the `reflex component` CLI).
 
 ## Status
 
-`v0.1.0` — foundation: base wrapper, generic component, typed factories, data
-builders, and a demo gallery covering every chart type. See
+`v0.2.1` — Reflex 0.10 support on top of the v0.1.0 foundation (base wrapper,
+generic component, typed factories, data builders, and a demo gallery covering
+every chart type). See
 [`../CHANGELOG.md`](../CHANGELOG.md).

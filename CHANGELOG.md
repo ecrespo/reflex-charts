@@ -6,11 +6,24 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-### Fixed
-- Remove the unregistered `Framework :: Reflex` trove classifier that PyPI
-  rejected (400) on upload.
+## [0.2.1] - 2026-10-24
+
+### Added
+- Release workflow (`.github/workflows/publish.yml`): pushing a `vX.Y.Z` tag
+  that matches `pyproject.toml` runs the tests, builds the distribution and
+  publishes it to PyPI via Trusted Publishing (no API token).
+
+## [0.2.0] - 2026-10-24
 
 ### Changed
+- **Require Reflex ≥ 0.10.0** (was ≥ 0.8.6). Stay on `reflex-charts==0.1.0`
+  for Reflex 0.8/0.9.
+- Build/publish docs: Reflex 0.10 removed the `reflex component` CLI, so the
+  package is built with `uv build` and uploaded with `twine` / `uv publish`.
+  Stub regeneration now uses `python -m reflex_base.utils.pyi_generator`.
+- Build backend requires `setuptools>=78.1.1`.
+- Demo `requirements.txt` installs the published `reflex-charts` from PyPI
+  (so Reflex Cloud deploys work) instead of `-e ..`.
 - Adopt the standard Reflex custom-component layout: the importable package now
   lives under `custom_components/reflex_charts/`, and the demo is a standalone
   app in `reflex_charts_demo/`. `pyproject.toml` uses
@@ -18,13 +31,18 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   and public API are unchanged.
 
 ### Added
+- GitHub Actions CI: pytest on Python 3.11–3.13, wheel build with a stub check,
+  and a `reflex compile` of the demo app.
 - Spec-traceable unit-test suite (constants, helpers, examples, components,
   public API) — 90 tests covering the documented surface.
-- `publish` optional-dependency group (`build`, `twine`) for
-  `reflex component build` / `publish`; `build`/`twine` also added to the dev
-  group so `reflex component build` works out of the box.
+- `publish` optional-dependency group (`build`, `twine`) for building and
+  uploading the distribution; `build`/`twine` also added to the dev group.
 - Generated type stubs (`base.pyi`, `chart.pyi`) and a PEP 561 `py.typed`
   marker, packaged so editors get typed autocomplete for the components.
+
+### Fixed
+- Remove the unregistered `Framework :: Reflex` trove classifier that PyPI
+  rejected (400) on upload.
 
 ## [0.1.0] - 2026-06-14
 

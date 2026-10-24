@@ -61,8 +61,8 @@ See ADR-003.
 
 ## 5. Module layout
 
-The repository follows the **Reflex custom-component layout** produced by
-`reflex component init`: the importable package lives under `custom_components/`
+The repository follows the **Reflex custom-component layout** (originally
+produced by `reflex component init`, a CLI removed in Reflex 0.10): the importable package lives under `custom_components/`
 and a standalone demo app lives in `reflex_charts_demo/`. Only the package is
 published to PyPI; the demo and tests are excluded from the wheel.
 

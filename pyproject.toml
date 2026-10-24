@@ -1,6 +1,6 @@
 [project]
 name = "reflex-charts"
-version = "0.1.0"
+version = "0.2.1"
 description = "A Reflex custom component that wraps Chart.js (via react-chartjs-2), usable from pure Python."
 readme = "README.md"
 requires-python = ">=3.11"
@@ -22,7 +22,7 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Visualization",
 ]
 dependencies = [
-    "reflex>=0.8.6",
+    "reflex>=0.10.0",
 ]
 
 [project.urls]
@@ -32,15 +32,15 @@ Issues = "https://github.com/ecrespo/reflex-charts/issues"
 
 [project.optional-dependencies]
 dev = ["pytest>=8"]
-# Tooling used to build and upload the custom-component distribution.
+# Tooling used to build and upload the distribution (`uv build` / `twine`).
 publish = ["build", "twine"]
 
 [build-system]
-requires = ["setuptools>=61"]
+requires = ["setuptools>=78.1.1"]
 build-backend = "setuptools.build_meta"
 
 # Reflex custom-component layout: the importable package lives under
-# ``custom_components/`` (per ``reflex component init``), keeping the demo app
+# ``custom_components/`` (the classic Reflex custom-component layout), keeping the demo app
 # and tests out of the published wheel.
 [tool.setuptools.packages.find]
 where = ["custom_components"]
