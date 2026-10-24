@@ -43,7 +43,7 @@ from .chart import (
 from .constants import CHART_TYPES, PALETTE
 from .helpers import categorical_dataset, chart_data, dataset, options
 
-__version__ = "0.2.0"
+__version__ = "0.2.1"
 
 __all__ = [
     "__version__",

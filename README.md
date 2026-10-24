@@ -8,7 +8,7 @@
 feature set through a small, Pythonic API so you can build interactive,
 reactive charts in a Reflex app without writing any JavaScript.
 
-> Status: **v0.2.0 — Reflex 0.10.** Base wrapper, generic component, typed
+> Status: **v0.2.1 — Reflex 0.10.** Base wrapper, generic component, typed
 > factories, data builders, and a demo gallery covering every chart type,
 > now targeting Reflex 0.10.
 
@@ -105,6 +105,19 @@ carries the `.pyi` stubs) and compiles the demo on every push and pull request.
 > **Reflex 0.10 removed the `reflex component` CLI** (`init`, `build`,
 > `publish`, `share`). The package is a plain setuptools project, so it is
 > built and uploaded with the standard Python tooling.
+
+**Releases are automated.** Bump the version, merge to `main`, then tag:
+
+```bash
+git tag v0.2.1 && git push origin v0.2.1
+```
+
+The `Publish` workflow (`.github/workflows/publish.yml`) checks that the tag
+matches `pyproject.toml`, runs the tests, builds, and uploads to PyPI through
+[Trusted Publishing](https://docs.pypi.org/trusted-publishers/) (GitHub
+environment `pypi`, no API token).
+
+Manual build/upload, for local checks or emergencies:
 
 ```bash
 uv build                         # build the wheel/sdist into dist/

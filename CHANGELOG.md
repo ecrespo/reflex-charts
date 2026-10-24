@@ -6,6 +6,13 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-10-24
+
+### Added
+- Release workflow (`.github/workflows/publish.yml`): pushing a `vX.Y.Z` tag
+  that matches `pyproject.toml` runs the tests, builds the distribution and
+  publishes it to PyPI via Trusted Publishing (no API token).
+
 ## [0.2.0] - 2026-10-24
 
 ### Changed

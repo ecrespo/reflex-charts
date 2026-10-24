@@ -32,7 +32,7 @@ The specs were derived from primary research into two sources:
 
 ## Status
 
-`v0.2.0` — Reflex 0.10 support on top of the v0.1.0 foundation (base wrapper,
+`v0.2.1` — Reflex 0.10 support on top of the v0.1.0 foundation (base wrapper,
 generic component, typed factories, data builders, and a demo gallery covering
 every chart type). See
 [`../CHANGELOG.md`](../CHANGELOG.md).
