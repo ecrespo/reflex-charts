@@ -60,7 +60,7 @@ JavaScript from the end user.
 ## 6. Non-functional requirements
 
 - **Reproducibility:** npm versions pinned (`chart.js@4.5.0`, `react-chartjs-2@5.3.0`).
-- **Compatibility:** Reflex ≥ 0.8.6, Python ≥ 3.11.
+- **Compatibility:** Reflex ≥ 0.10.0, Python ≥ 3.11.
 - **Footprint:** no Python runtime deps beyond Reflex.
 - **License:** Apache-2.0 for this repo; upstream JS libs are MIT (see `NOTICE`).
 - **Docs:** README quick-start + `specs/` SDD set + per-type examples.

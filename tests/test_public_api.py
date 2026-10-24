@@ -55,7 +55,7 @@ def test_factories_and_builders_are_callable():
 
 
 def test_version_is_declared():
-    assert rxc.__version__ == "0.1.0"
+    assert rxc.__version__ == "0.2.0"
 
 
 def test_version_matches_packaging_metadata():

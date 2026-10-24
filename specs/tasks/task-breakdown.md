@@ -44,8 +44,8 @@ Granular, checkable work items grouped by phase (see [phases](../phases/phases.m
 - [ ] Create public GitHub repo and push `main`.
 
 ## P5 — Hardening (future)
-- [ ] CI workflow (ruff + pytest) on push/PR.
-- [ ] PyPI release (`reflex component build` / `publish`).
+- [x] CI workflow (pytest, wheel build, demo compile) on push/PR.
+- [x] PyPI release (`uv build` + `twine upload`).
 - [ ] Plugin passthrough recipes (zoom, datalabels, annotation).
 - [ ] Structured `on_click` payload `{datasetIndex, index, value}`.
 - [ ] `time`-scale recipe with a date adapter.

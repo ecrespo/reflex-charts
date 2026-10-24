@@ -6,12 +6,12 @@ A practical, example-first guide. For the formal contract see
 ## Install
 
 ```bash
-pip install reflex-charts        # once published
+pip install reflex-charts
 # or, from a clone:
 pip install -e .
 ```
 
-Requires Reflex ≥ 0.8.6 and Python ≥ 3.11. The first `reflex run` downloads the
+Requires Reflex ≥ 0.10.0 and Python ≥ 3.11. The first `reflex run` downloads the
 pinned npm packages (`chart.js`, `react-chartjs-2`).
 
 ## The mental model

@@ -1,2 +1,7 @@
-# The demo installs the local custom component (which depends on reflex).
--e ..
+# Cloud/deploy builds install the published component from PyPI.
+# (`-e ..` only works in a local checkout; on Reflex Cloud the app unpacks to
+#  /home/reflexuser/app and `..` has no pyproject.toml — see PyPI instead.)
+# reflex-charts pulls in reflex as a dependency.
+reflex-charts==0.2.0
+
+reflex==0.10.0

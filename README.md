@@ -8,8 +8,9 @@
 feature set through a small, Pythonic API so you can build interactive,
 reactive charts in a Reflex app without writing any JavaScript.
 
-> Status: **v0.1.0 — foundation.** Base wrapper, generic component, typed
-> factories, data builders, and a demo gallery covering every chart type.
+> Status: **v0.2.0 — Reflex 0.10.** Base wrapper, generic component, typed
+> factories, data builders, and a demo gallery covering every chart type,
+> now targeting Reflex 0.10.
 
 ## Features
 
@@ -29,12 +30,13 @@ reactive charts in a Reflex app without writing any JavaScript.
 ## Install
 
 ```bash
-pip install reflex-charts        # once published to PyPI
+pip install reflex-charts        # or: uv add reflex-charts
 # or from a clone:
 pip install -e .
 ```
 
-Requires Reflex ≥ 0.8.6 and Python ≥ 3.11.
+Requires Reflex ≥ 0.10.0 and Python ≥ 3.11. Projects still on Reflex 0.8/0.9
+can pin `reflex-charts==0.1.0`.
 
 ## Quick start
 
@@ -83,30 +85,44 @@ A standalone demo app (`reflex_charts_demo/`) shows a gallery of every chart
 type plus a state-driven, click-aware interactive example.
 
 ```bash
-pip install -e .                 # install the component (editable)
+uv sync                          # installs reflex + the component (editable)
 cd reflex_charts_demo
-reflex run                       # open http://localhost:3000
+uv run reflex run                # open http://localhost:3000
 ```
 
-## Build & publish (custom component)
-
-This repo follows the [Reflex custom-component](https://reflex.dev/docs/custom-components/overview/)
-layout, so the standard tooling works:
+## Test
 
 ```bash
-reflex component build           # build the wheel/sdist into dist/
-twine upload dist/*              # upload to PyPI (token via ~/.pypirc)
+uv run pytest                    # unit tests
+cd reflex_charts_demo && uv run reflex compile   # demo compiles against the component
 ```
 
-> Reflex 0.9's `reflex component` CLI has no `publish` subcommand; publish the
-> built artifacts with `twine` (or `uv publish`).
+CI (`.github/workflows/ci.yml`) runs the tests, builds the wheel (checking it
+carries the `.pyi` stubs) and compiles the demo on every push and pull request.
 
-The build ships typed `.pyi` stubs (and a `py.typed` marker) for editor
-autocomplete. To **regenerate** the stubs after changing component props, make
-the source importable by its on-disk path so Reflex's stub generator can load it:
+## Build & publish
+
+> **Reflex 0.10 removed the `reflex component` CLI** (`init`, `build`,
+> `publish`, `share`). The package is a plain setuptools project, so it is
+> built and uploaded with the standard Python tooling.
 
 ```bash
-PYTHONPATH="$PWD" reflex component build
+uv build                         # build the wheel/sdist into dist/
+uv run twine check dist/*        # validate metadata / README rendering
+uv run twine upload dist/*       # upload to PyPI (token via ~/.pypirc)
+# or: uv publish                 # token via UV_PUBLISH_TOKEN
+```
+
+Bump `version` in `pyproject.toml` **and** `__version__` in
+`custom_components/reflex_charts/__init__.py` before every release (a test
+keeps them in sync).
+
+The wheel ships typed `.pyi` stubs (and a `py.typed` marker) for editor
+autocomplete. The stubs are committed; to **regenerate** them after changing
+component props, run Reflex's stub generator on the package:
+
+```bash
+PYTHONPATH="$PWD" uv run python -m reflex_base.utils.pyi_generator custom_components/reflex_charts
 ```
 
 ## Project layout
